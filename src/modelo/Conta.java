@@ -3,9 +3,10 @@ package modelo;
 import excecoes.SaldoInsuficienteException;
 import excecoes.ValorInvalidoException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Conta {
+public class Conta implements Serializable {
 
     private String numero;
     private String titular;

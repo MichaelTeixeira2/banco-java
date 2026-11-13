@@ -3,9 +3,10 @@ package app;
 import excecoes.BancoException;
 import modelo.Conta;
 import servico.Banco;
+import servico.GravadorDeContas;
+import servico.GravadorSerializacao;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -15,8 +16,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+        ArrayList<Conta> salvos = GravadorSerializacao.carregarContas();
 
+        for(Conta s : salvos){
+            banco.adicionar(s);
+        }
         int opcao = -1;
+
         while (opcao != 0){
 
 
@@ -29,6 +35,8 @@ public class Main {
             System.out.println("4- Transferir");
             System.out.println("5- Ver extrato");
             System.out.println("6- Listar contas");
+            System.out.println("7- Salvar contas em arquivo");
+            System.out.println("8 - Salvar contas em disco");
             System.out.println("0- Sair");
             System.out.print("opcao: ");
 
@@ -101,6 +109,15 @@ public class Main {
                         for(Conta l :lista){
                             System.out.println("| Numero: " +l.getNumero()+ " | Titular: " +l.getTitular()+ " | Saldo: " +l.getSaldo());
                         }
+                        break;
+                    }
+                    case 7:{
+                        GravadorDeContas.salvar(banco.listarContas());
+                        System.out.println("Conta salva com sucesso!!");
+                        break;
+                    }
+                    case 8:{
+                        GravadorSerializacao.salvarContas(banco.listarContas());
                         break;
                     }
                     case 0:{

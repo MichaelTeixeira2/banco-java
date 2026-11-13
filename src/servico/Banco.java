@@ -8,7 +8,7 @@ import modelo.Conta;
 
 import java.util.ArrayList;
 
-public class Banco {
+public class Banco{
 
     private ArrayList<Conta> contas = new ArrayList<>();
 
@@ -24,7 +24,12 @@ public class Banco {
 
         return conta;
     }
-
+    
+    public void adicionar(Conta conta){
+        contas.add(conta);
+        System.out.println("conta adiconada com sucesso!");
+    }
+    
     public Conta buscarConta(String numero) throws ContaNaoEncontradaException{
         for(Conta c : contas){
             if(c.getNumero().equalsIgnoreCase(numero)){
