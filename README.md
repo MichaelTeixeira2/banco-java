@@ -50,4 +50,4 @@ o Enter no buffer ao usar nextInt().
 
 ## Autor
 
-[Michael Douglas Teixeira Barbosa](michaeldouglas0911@gmail.com)
+[Michael Douglas Teixeira Barbosa](https://github.com/MichaelTeixeira2)
